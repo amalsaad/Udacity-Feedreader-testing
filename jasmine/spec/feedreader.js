@@ -88,7 +88,7 @@ $(function () {
 
 
         it('initial element is there', function () {
-            var entries = $('.entry').length;
+            var entries = $('.feed .entry').length;
             expect(entries).toBeGreaterThan(0);
         });
    

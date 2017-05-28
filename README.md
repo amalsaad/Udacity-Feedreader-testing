@@ -47,10 +47,25 @@ Review the Feed Reader Testing [Project Rubric](https://review.udacity.com/#!/pr
 20. When complete - all of your tests should pass. 
 21. Write a README file detailing all steps required to successfully run the application. If you have added additional tests (for Udacious Test Coverage),  provide documentation for what these future features are and what the tests are checking for.
 
+
+
+project structure:
+
+*index.html - main page has all html tags.
+*app.js - has webpage javascript.
+*css folder - has webpage styling.
+*fonts folder - has webpage fonts. 
+*jasmine folder /lib - framework for testing JavaScript code.
+*jasmine folder /spec/ feedreader - has the JavaScript testing code.
+
+
 view the project on github:
 https://github.com/amalsaad/feedreader-testing
 
+user instruction:
 
+user should start with browsing index.html using any browser such as chrome, the webpage uses jasmine testing tool which is development framework for testing JavaScript code. Through feedreader.js under spec folder user will be able to write the tesing area that will display in page footer in jasmine, this webpage has multiple test area to validate the functionalty of page:
+ 
 test area:
 * feeds are defined.
 * feed URLs are defined.
