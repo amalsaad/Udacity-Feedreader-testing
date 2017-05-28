@@ -45,10 +45,10 @@ $(function () {
          * and that the name is not empty.
          */
         it('have names', function () {
-            for (var i in allFeeds) {
-                expect(allFeeds[i].name).toBeDefined();
-                expect(typeof allFeeds[i].name).toBe('string');
-                expect(allFeeds[i].name.length).not.toBe(0);
+            for (var feed in allFeeds) {
+                expect(allFeeds[feed].name).toBeDefined();
+                expect(typeof allFeeds[feed].name).toBe('string');
+                expect(allFeeds[feed].name.length).not.toBe(0);
             }
         });
 
@@ -59,20 +59,19 @@ $(function () {
 
     describe('The menu', function () {
 
-        var hiddenMenu = $('body').hasClass('menu-hidden');
 
         it('body has "menu-hidden" by default', function () {
-            expect(hiddenMenu).toEqual(true);
+            expect($('.menu-hidden').is(':visible')).toBe(true);
         });
 
         it('on click changes menu visibility', function () {
             var menuIcon = $('.menu-icon-link');
 
             menuIcon.click();
-            expect(hiddenMenu).toEqual(false);
+            expect($('.menu-hidden').is(':visible')).toBe(false);
 
             menuIcon.click();
-            expect(hiddenMenu).toEqual(true);
+            expect($('.menu-hidden').is(':visible')).toBe(true);
         });
 
     });
@@ -87,16 +86,13 @@ $(function () {
             });
         });
 
-        // Make sure each (.feed .entry-link) element has valid link
-        it("feed container has at least 1 entry and has a link starting with http|https ", function (done) {
-            var entries = $('.entry').length;
 
+        it('initial element is there', function () {
+            var entries = $('.entry').length;
             expect(entries).toBeGreaterThan(0);
-            for (var i = 0; i < entries; i++) {
-                expect(entries[i].href).toMatch(/^(http|https):\/\//);
-            }
-            done();
         });
+   
+
 
     });
 
@@ -112,7 +108,6 @@ $(function () {
 
     describe('New Feed Selection', function () {
         var FirstFeed;
-        var SecondFeed;
         
         beforeEach(function (done) {
             loadFeed(0, function () {
@@ -122,13 +117,10 @@ $(function () {
                 });
             });
         });
-       
+ 
 
-        it('change feed content on menu select', function () {
-            expect(FirstFeed).toBeDefined();
-            SecondFeed = $('.feed').html();
-            expect(SecondFeed).toBeDefined();
-            expect(FirstFeed).not.toEqual(SecondFeed);
+        it('has been loaded', function () {
+            expect($('.feed').html()).not.toEqual(FirstFeed);
         });
     });
 
